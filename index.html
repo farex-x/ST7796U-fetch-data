@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .search-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+        }
+
+        .glow-text {
+            display: inline-block;
+            padding: 16px;
+            font-size: 24px;
+            text-align: left;
+            /* Rainbow gradient for text */
+            background: linear-gradient(
+                -45deg,
+                red, orange, yellow, green, blue, indigo, violet
+            );
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowGlow 15s linear infinite;
+        }
+
+        .glow-line {
+            margin-top: 8px;
+            height: 8px;
+            width: 100%;
+            border-radius: 4px;
+            background: linear-gradient(
+                90deg,
+                #555, #888, #555
+            );
+            background-size: 400% 400%;
+            animation: grayGlow 10s linear infinite;
+        }
+
+        .top-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-buttons button {
+            padding: 8px 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .top-buttons button:hover {
+            background-color: #555;
+        }
+
+        @keyframes rainbowGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes grayGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <div class="glow-text">Serveur IP - Activé - V3.2.6b </div>
+        <div class="glow-line"></div>
+    </div>
+
+    <div class="top-buttons">
+        <button onclick="location.href='local.html'">Local</button>
+        <button onclick="location.href='data.html'">Donées</button>
+        <button onclick="window.open('https://ecoledirecte.com', '_blank')">Ecole Directe</button>
+    </div>
+</body>
+</html>
