@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>redirect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #00000;
+      flex-direction: column;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    input {
+      padding: 12px;
+      font-size: 18px;
+      width: 250px;
+      margin-right: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { background: #0056b3; }
+    .examples {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Redirect</h1>
+    <p>entre une page dans le format<code> nom.html</code></p>
+    
+    <input type="text" id="nameInput" placeholder="Entre un html..." autofocus>
+    <button onclick="redirectToName()">Go</button>
+    
+    <div class="sugerees">
+      <p>Examples:</p>
+      <p><a href="/index.html">/index</a> • <a href="/var.html">/var</a> • <a href="/preview.html">/preview</a> • <a href="/data.html">/data</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Redirect function
+    function redirectToName() {
+      const name = document.getElementById('nameInput').value.trim();
+      
+      if (name === '') {
+        alert('Please enter a name!');
+        return;
+      }
+      
+      // Sanitize a bit: replace spaces with hyphens and remove dangerous chars
+      const safeName = name
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]/g, '')   // keep only letters, numbers, _, -
+        .replace(/\s+/g, '-');         // replace spaces with hyphens
+      
+      if (safeName === '') {
+        alert('caracteres invalides');
+        return;
+      }
+      
+      // Redirect to /username
+      window.location.href = '/' + safeName;
+    }
+
+    // Allow pressing Enter in the input field
+    document.getElementById('nameInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        redirectToName();
+      }
+    });
+  </script>
+
+</body>
+</html>
