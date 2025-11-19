@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .countdown { font-weight: bold; font-size: 2em; margin-top: 20px; }
+    </style>
+    <script>
+        let seconds = 5;
+        function updateCountdown() {
+            document.getElementById('timer').textContent = seconds;
+            if(seconds === 0){
+                window.location.href = "/index.html";
+            } else {
+                seconds--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        window.onload = updateCountdown;
+    </script>
+</head>
+<body>
+    <h1>erreur.</h1>
+    <p>retour a l'accueil dans  <span id="timer">3</span> secondes.</p>
+    <p>Si tu n'est pas redirige, <a href="/index.html">clique ici</a>.</p>
+</body>
+</html>
